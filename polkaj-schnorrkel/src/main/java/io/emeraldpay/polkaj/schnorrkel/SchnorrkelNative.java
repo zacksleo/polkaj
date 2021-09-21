@@ -31,7 +31,7 @@ public class SchnorrkelNative extends Schnorrkel {
     @Override
     public KeyPair generateKeyPair() throws SchnorrkelException {
         try {
-            return generateKeyPair(SecureRandom.getInstanceStrong());
+            return generateKeyPair(SecureRandom.getInstance("NativePRNGNonBlocking"));
         } catch (NoSuchAlgorithmException e) {
             throw new SchnorrkelException("Secure Random is not available");
         }
